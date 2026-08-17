@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GitHub Practice App</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background: #f4f4f9; }
+        .card { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; }
+        button { background: #24292e; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Frontend Dashboard</h2>
+        <button onclick="fetchBackendData()">Connect to Backend</button>
+        <p id="response" style="margin-top: 20px; font-weight: bold; color: #0366d6;"></p>
+    </div>
+
+    <script>
+        async function fetchBackendData() {
+            try {
+                const res = await fetch('http://127.0.0');
+                const data = await res.json();
+                document.getElementById('response').innerText = data.message;
+            } catch (err) {
+                document.getElementById('response').innerText = "Error: Is the backend running?";
+            }
+        }
+    </script>
+</body>
+</html>
